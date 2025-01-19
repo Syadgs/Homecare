@@ -13,6 +13,33 @@
             font-weight: 700;
             line-height: 1.6;
         }
+        @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px); /* Mulai sedikit dari bawah */
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0); /* Kembali ke posisi normal */
+        }
+        }
+
+        /* Terapkan animasi pada setiap elemen dengan kelas fade-in */
+        .fade-in {
+            opacity: 0; /* Mulai tidak terlihat */
+            animation: fadeIn 1s ease-out forwards; /* Durasi animasi */
+        }
+
+        /* Gunakan delay yang bervariasi */
+        .fade-in:nth-child(1) {
+            animation-delay: 0s; /* Kolom pertama tanpa delay */
+        }
+        .fade-in:nth-child(2) {
+            animation-delay: 0.3s; /* Kolom kedua dengan delay 0.3 detik */
+        }
+        .fade-in:nth-child(3) {
+            animation-delay: 0.6s; /* Kolom ketiga dengan delay 0.6 detik */
+        }
         .navbar {
             background-color: #007B7F;
         }
@@ -121,7 +148,7 @@
                 <img src="logo.png" alt="Logo" style="width: 40px;">
                 <img src="kalisari.png" alt="Kalisari" style="width: 100px;">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls=" navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -130,7 +157,7 @@
                         <a class="nav-link" href="#">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Layanan</a>
+                        <a class="nav-link" href="#" id="scrollToLayanan">Layanan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-success text-white d-flex align-items-center justify-content-center" href="https://wa.me/+6282299996577" style="gap: 8px;">
@@ -138,9 +165,8 @@
                             +62822-9999-6577
                         </a>
                     </li>
-                    
                     <li class="nav-item">
-                        <a class="nav-link btn login-btn" href="#">Login</a>
+                        <a class="nav-link btn login-btn" href="{{ route('login') }}">Login</a>
                     </li>
                 </ul>
             </div>
@@ -152,21 +178,21 @@
         <h2 class="mb-4" style="color: #8EDBE6;">Kalisari Homecare</h2>
         <div class="container text-center my-5">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 fade-in" style="animation-delay: 0s;">
                     <div class="text-center">
                         <img src="{{ asset('hubungi_kami.png') }}" alt="Hubungi Kami" class="mb-3" style="width: 190px; height: auto;">
                         <h5 class="mb-2">Hubungi Kami</h5>
                         <p class="text-muted">Anda dapat menghubungi kami dengan WhatsApp melalui nomor yang sudah tertera pada website kami.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 fade-in" style="animation-delay: 0.3s;">
                     <div class="text-center">
                         <img src="{{ asset('konsultasi.png') }}" alt="Konsultasi" class="mb-3" style="width: 190px; height: auto;">
                         <h5 class="mb-2">Konsultasi</h5>
                         <p class="text-muted">Berikan keluhan Anda untuk pengambilan tindakan medis.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 fade-in" style="animation-delay: 0.6s;">
                     <div class="text-center">
                         <img src="{{ asset('tim_medis_datang.png') }}" alt="Tim Medis" class="mb-3" style="width: 190px; height: auto;">
                         <h5 class="mb-2">Tim Medis Datang</h5>
@@ -175,7 +201,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
 
     <div class="why-homecare py-5">
@@ -193,7 +218,6 @@
                             </ul>
                         </div>
                     </div>
-                    
                 </div>
                 <div class="col-md-6 text-center">
                     <img src="kenapa_homecare.png" class="card-img-top" alt="Hubungi Kami">
@@ -201,9 +225,9 @@
             </div>
         </div>
     </div>
-        
+
     <!-- Services Section -->
-    <div class="container mt-5">
+    <div id="layanan" class="container mt-5">
         <h2 class="text-center" style="color: #8EDBE6; margin-bottom: 40px; font-weight: bold;">Layanan Homecare</h2>
         <div class="row justify-content-center">
             <!-- Card 1 -->
@@ -253,8 +277,6 @@
                 <div class="logo-description" style="flex: 1; max-width: 400px; display: flex; align-items: center; gap: 15px;">
                     <!-- Logo -->
                     <img src="logo.png" alt="Logo Kalisari" style="width: 100px;">
-                
-                    <!-- Tulisan Kalisari Healthcare -->
                     <img src="kalisari.png" alt="Kalisari Healthcare" style="width: 175px;">
                 </div>                
                 <p style="line-height: 1.8; text-align: justify;">
@@ -269,8 +291,8 @@
                 <p style="margin: 0 0 10px;">
                     >> <a href="#" style="text-decoration: none; color: white;">Beranda</a>
                 </p>
-                <p style="margin: 0 0 10px;">
-                    >> <a href="#" style="text-decoration: none; color: white;">Layanan</a>
+                <p id="layanan" style="margin: 0 0 10px;">
+                    >> <a href="#" id ="scrollToLayanan" style="text-decoration: none; color: white;">Layanan</a>
                 </p>
             </div>
     
@@ -278,7 +300,7 @@
             <div class="contact" style="flex: 1; max-width: 300px; text-align: left;">
                 <p style="display: flex; align-items: center; margin: 0 0 10px;">
                     <img src="Phone.png" alt="Phone" style="width: 20px; height: 20px; margin-right: 10px;">
-                    0822-9999-6577
+                    +62 822-9999-6577
                 </p>
                 <p style="display: flex; align-items: center; margin: 0 0 10px;">
                     <img src="Email.png" alt="Email" style="width: 20px; height: 20px; margin-right: 10px;">
@@ -295,8 +317,13 @@
             </div>
         </div>
     </footer>
-    
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Tambahan Script -->
+    <script>
+        document.getElementById('scrollToLayanan').addEventListener('click', function (e) {
+            e.preventDefault(); // Mencegah reload halaman
+            document.getElementById('layanan').scrollIntoView({ behavior: 'smooth' }); // Scroll halus ke id="layanan"
+        });
+    </script>
 </body>
 </html>
