@@ -88,17 +88,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="{{ asset('images/hubungi_kami.png') }}" alt="Hubungi Kami" class="img-fluid mb-3" style="max-width: 200px;">
+
+                    <img src="{{ asset('images/hubungi_kami.png') }}" alt="Hubungi Kami" class="img-fluid mb-3" style="max-width: 100px;">
+
                     <h5>Hubungi Kami</h5>
                     <p>Anda dapat menghubungi kami dengan WhatsApp melalui nomor yang sudah tertera pada website kami.</p>
                 </div>
                 <div class="col-md-4">
-                    <img src="{{ asset('images/layanan.png') }}" alt="Konsultasi" class="img-fluid mb-3" style="max-width: 200px;">
+
+                    <img src="{{ asset('images/layanan.png') }}" alt="Konsultasi" class="img-fluid mb-3" style="max-width: 100px;">
+
                     <h5>Konsultasi</h5>
                     <p>Berikan keluhan Anda untuk pengambilan tindakan medis.</p>
                 </div>
                 <div class="col-md-4">
-                    <img src="{{ asset('images/tim_medis_datang.png') }}" alt="Tim Medis Datang" class="img-fluid mb-3" style="max-width: 200px;">
+
+                    <img src="{{ asset('images/tim_medis_datang.png') }}" alt="Tim Medis Datang" class="img-fluid mb-3" style="max-width: 100px;">
+
                     <h5>Tim Medis Datang</h5>
                     <p>Tim medis kami akan datang untuk memberikan pelayanan kepada Anda.</p>
                 </div>
@@ -178,3 +184,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
