@@ -9,7 +9,9 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('homepage');
 });
-
+Route::get('/admin', function () {
+    return view('admin');
+});
 
 // Route untuk halaman login
 Route::get('/login', function () {
