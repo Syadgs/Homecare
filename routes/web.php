@@ -25,6 +25,16 @@ Route::get('/login', function () {
 Route::get('/admin', function () {
     return view('admin'); // Pastikan file view admin.blade.php sudah dibuat
 })->name('admin');
+// Route untuk menampilkan form reservasi
+Route::get('/reservasi', function () {
+    return view('reservasi');
+})->name('reservasi');
+
+// Route untuk submit form
+Route::post('/reservasi/submit', function () {
+    // Logika submit, misalnya menyimpan data ke database
+    return redirect()->route('home'); // Contoh redirect
+})->name('reservasi.submit');
 
 
 // Route untuk memproses login

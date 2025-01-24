@@ -306,13 +306,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- Tambahan Script -->
-    <script>
-        document.getElementById('scrollToLayanan').addEventListener('click', function (e) {
-            e.preventDefault(); // Mencegah reload halaman
-            document.getElementById('layanan').scrollIntoView({ behavior: 'smooth' }); // Scroll halus ke id="layanan"
-        });
-    </script>
 </body>
 </html>
