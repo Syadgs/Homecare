@@ -7,6 +7,7 @@
     <!-- Google Font: Instrument Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
     <style>
         body {
             font-family: 'Instrument Sans', sans-serif;
@@ -165,9 +166,6 @@
                             +62822-9999-6577
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn login-btn" href="{{ route('login') }}">Login</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -285,16 +283,7 @@
                 </p>
             </div>
     
-            <!-- Menu Pages -->
-            <div class="pages" style="flex: 1; max-width: 150px; text-align: left;">
-                <h5 style="font-weight: 700; margin-bottom: 20px;">Pages</h5>
-                <p style="margin: 0 0 10px;">
-                    >> <a href="#" style="text-decoration: none; color: white;">Beranda</a>
-                </p>
-                <p id="layanan" style="margin: 0 0 10px;">
-                    >> <a href="#" id ="scrollToLayanan" style="text-decoration: none; color: white;">Layanan</a>
-                </p>
-            </div>
+      
     
             <!-- Kontak -->
             <div class="contact" style="flex: 1; max-width: 300px; text-align: left;">

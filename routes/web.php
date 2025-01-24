@@ -1,19 +1,10 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomecareController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Auth;
 
 // Route ke halaman utama aplikasi
 Route::get('/', function () {
@@ -31,6 +22,11 @@ Route::get('/login', function () {
     return view('login'); // Pastikan file view login.blade.php sudah dibuat
 })->name('login');
 
+Route::get('/admin', function () {
+    return view('admin'); // Pastikan file view admin.blade.php sudah dibuat
+})->name('admin');
+
+
 // Route untuk memproses login
 Route::post('/login', function (\Illuminate\Http\Request $request) {
     // Validasi sederhana (bisa diganti dengan autentikasi Laravel)
@@ -41,13 +37,18 @@ Route::post('/login', function (\Illuminate\Http\Request $request) {
 
     // Dummy check (username dan password)
     if ($validated['username'] === 'admin' && $validated['password'] === 'kalisari') {
-        // Jika login berhasil, redirect ke homepage
-        return redirect()->route('homepage');
+        // Jika login berhasil, redirect ke halaman admin
+        return redirect()->route('admin');
     }
 
     // Jika gagal, kembali ke halaman login dengan error
     return back()->withErrors(['error' => 'Invalid username or password']);
 })->name('login.process');
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+});
 
 // Route untuk homepage
 Route::get('/homepage', function () {
