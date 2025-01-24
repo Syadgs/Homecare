@@ -18,6 +18,17 @@
             background-color: #ffffff;
         }
 
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(10px); /* Elemen sedikit turun */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Elemen kembali ke tempatnya */
+            }
+        }
+
         /* Header */
         .dashboard-header {
             display: flex;
@@ -58,6 +69,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 1200px;
+            animation: fade-in 1s ease-in-out;
         }
 
         .welcome-text h1 {
@@ -92,6 +104,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             max-width: 1200px;
+            animation: fade-in 1s ease-in-out 0.5s;
         }
 
         .menu-item {
@@ -133,6 +146,7 @@
             gap: 15px;
             max-width: 800px;
             margin: 20px auto;
+            animation: fade-in 1s ease-in-out 1s;
         }
 
         .stat-card {
@@ -242,6 +256,7 @@
             max-width: 700px;
             border-radius: 15px;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            animation: fade-in 0.8s ease-in-out;
         }
 
         /* Header Modal */
@@ -277,6 +292,7 @@
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
+            animation: fade-in 0.8s ease-in-out;
         }
 
         /* Foto Dokter */
@@ -432,11 +448,11 @@
                     <button class="back-button" onclick="goBack()">Back</button>
                 </div>
             </div>
-            <button class="menu-item">
+            <button class="menu-item" onclick="window.location.href='{{ route('reservasi') }}'">
                 <i class="fas fa-file-signature"></i>
                 <img src="{{ asset('Sign_Doc.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
                 <span>Reservasi HC</span>
-            </button>
+            </button>            
             <button class="menu-item">
                 <i class="fas fa-heart"></i>
                 <img src="{{ asset('Trust.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
