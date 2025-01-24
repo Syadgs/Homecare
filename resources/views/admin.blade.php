@@ -7,6 +7,8 @@
     <!-- Tambahkan Font Instrument Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ asset('logo.png') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <style>
         /* Global Styles */
         body {
@@ -72,6 +74,11 @@
             margin: 0;
             text-align: right;
             color: #6c757d;
+        }
+
+        .time {
+        display: block;
+        text-align: left;
         }
 
         /* Menu Buttons */
@@ -211,6 +218,134 @@
             font-weight: normal;
             line-height: 1.5;
         }
+
+        /* Modal Background */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            overflow: auto;
+        }
+
+        /* Konten Modal */
+        .modal-content {
+            background-color: #ffffff;
+            margin: 5% auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 700px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header Modal */
+        .modal-header {
+            display: flex;
+            align-items: center; /* Rata tengah vertikal antara ikon dan teks */
+            background-color: #67CED1;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            justify-content: flex-start; /* Posisi ikon + teks di sebelah kiri */
+            gap: 10px; /* Jarak antara ikon dan teks */
+        }
+
+        .modal-header .icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        .modal-header h2 {
+            font-size: 24px;
+            color: #000; /* Ubah warna teks menjadi hitam */
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* Kartu Dokter */
+        .doctor-card {
+            display: flex; /* Gunakan Flexbox */
+            align-items: center; /* Vertikal sejajar */
+            background-color: #67CED1;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Foto Dokter */
+        .doctor-photo {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 20px; /* Jarak antara foto dan konten di sebelah kanan */
+            display: flex;
+            flex-shrink: 0; /* Pastikan ukuran foto tetap */
+        }
+
+        /* Informasi Dokter */
+        .doctor-info {
+            display: flex; /* Gunakan Flexbox untuk tata letak vertikal */
+            flex-direction: column;
+            justify-content: center; /* Posisikan nama dokter di bawah tengah foto */
+            align-items: center; /* Pastikan konten berada di tengah */
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Nama Dokter */
+        .doctor-info h3 {
+            font-size: 18px;
+            color: #000;
+            margin: 10px 0 0; /* Tambahkan jarak ke atas */
+        }
+
+        /* Tabel Jadwal */
+        .schedule-row {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); /* 6 kolom */
+            gap: 10px;
+            width: 100%;
+            margin-top: 10px; /* Tambahkan jarak antara nama dan jadwal */
+        }
+
+        .schedule-row div {
+            text-align: center;
+        }
+
+        .schedule-row span {
+            display: block;
+            padding: 5px;
+            border-radius: 3px;
+            background-color: #00969A;
+            color: white;
+            font-size: 12px;
+        }
+
+        /* Tombol Back */
+        .back-button {
+            float: right;
+            background-color: #67CED1;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #67CED1;
+        }
     </style>
 </head>
 <body>
@@ -221,11 +356,13 @@
                 <img src="logo.png" alt="Logo" style="width: 40px;">
                 <img src="kalisari.png" alt="Kalisari" style="width: 100px;">
             </a>
-            <button class="logout-button">
-                <i class="fas fa-power-off"></i>
-                <img src="Shutdown.png" alt="Shutdown Logo" style="width: 20px; height: 20px;">
-                <span>Logout</span>
-            </button>
+            <form action="{{ url('/logout') }}" method="GET" style="display: inline;">
+                <button class="logout-button" type="submit">
+                    <i class="fas fa-power-off"></i>
+                    <img src="Shutdown.png" alt="Shutdown Logo" style="width: 20px; height: 20px;">
+                    <span>Logout</span>
+                </button>
+            </form>
             
         </header>
 
@@ -237,9 +374,8 @@
             </div>
             <div class="login-card">
                 <p class="title">Waktu Login :</p>
-                <p class="time">15/01/2025<br>08:00 WIB</p>
+                <p class="time" id="time">Pukul :</p>
             </div>
-            
         </div>
 
         <!-- Menu Buttons -->
@@ -249,15 +385,57 @@
                 <img src="{{ asset('Folder.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
                 <span>Data Pasien</span>
             </button>
-            <button class="menu-item">
+            <button class="menu-item" id="showModalButton">
                 <i class="fas fa-clock"></i>
                 <img src="{{ asset('Clock.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
                 <span>Jadwal Dokter</span>
             </button>
+            <div id="scheduleModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <img src="Clock.png" alt="Clock Icon" class="icon">
+                        <h2>Jadwal Dokter</h2>
+                    </div>                    
+                    <!-- Dokter 1 -->
+                    <div class="doctor-card">
+                        <img src="dr_salwa.png" alt="dr. Salwa" class="doctor-photo">
+                        <div class="doctor-info">
+                            <h3>dr. Salwa</h3>
+                            <div class="schedule-row">
+                                <div><span>Senin</span><span>15.00-21.00</span></div>
+                                <div><span>Selasa</span><span>08.00-21.00</span></div>
+                                <div><span>Rabu</span><span>08.00-21.00</span></div>
+                                <div><span>Kamis</span><span>08.00-15.00</span></div>
+                                <div><span>Jum'at</span><span>08.00-21.00</span></div>
+                                <div><span>Sabtu</span><span>08.00-21.00</span></div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Dokter 2 -->
+                    <div class="doctor-card">
+                        <img src="dr_ece.png" alt="dr. Ece Yurika Wulandari" class="doctor-photo">
+                        <div class="doctor-info">
+                            <h3>dr. Ece Yurika Wulandari</h3>
+                            <div class="schedule-row">
+                                <div><span>Senin</span><span>08.00-15.00</span></div>
+                                <div><span>Selasa</span><span>08.00-21.00</span></div>
+                                <div><span>Rabu</span><span>08.00-21.00</span></div>
+                                <div><span>Kamis</span><span>08.00-15.00</span></div>
+                                <div><span>Jum'at</span><span>08.00-21.00</span></div>
+                                <div><span>Sabtu</span><span>08.00-15.00</span></div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Tombol Back -->
+                    <button class="back-button" onclick="goBack()">Back</button>
+                </div>
+            </div>
             <button class="menu-item">
                 <i class="fas fa-file-signature"></i>
                 <img src="{{ asset('Sign_Doc.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
-                <span>Registrasi Pasien</span>
+                <span>Reservasi HC</span>
             </button>
             <button class="menu-item">
                 <i class="fas fa-heart"></i>
@@ -310,19 +488,58 @@
         </div>
     </div>
     <script>
-        // Mendapatkan elemen untuk menampilkan waktu login
-        const loginTimeElement = document.getElementById('login-time');
-    
-        // Mendapatkan waktu saat ini
+        function updateLoginTime() {
         const now = new Date();
-    
-        // Format tanggal dan jam
-        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-        const formattedDate = now.toLocaleDateString('id-ID', options); // Format Indonesia: DD/MM/YYYY
-        const formattedTime = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }); // Format HH:MM
-    
-        // Menampilkan hasil di elemen
-        loginTimeElement.innerHTML = `${formattedDate}<br>${formattedTime} WIB`;
+        const options = { 
+            year: 'numeric', 
+            month: '2-digit', 
+            day: '2-digit', 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit', 
+            hour12: false, 
+            timeZone: 'Asia/Jakarta'
+        };
+        
+        const formattedTime = now.toLocaleString('id-ID', options);
+        const dateAndTime = formattedTime.split(','); // Pisahkan tanggal dan waktu
+
+        // Menampilkan tanggal di atas dan waktu di bawah
+        document.getElementById('time').innerHTML = `${dateAndTime[0]}<br>${dateAndTime[1]}`;
+    }
+
+    updateLoginTime();
+
+    // Ambil elemen-elemen yang dibutuhkan
+    var modal = document.getElementById('scheduleModal');
+        var btn = document.getElementById('showModalButton');
+        var closeBtn = document.getElementsByClassName('close-btn')[0];
+
+        // Ketika tombol diklik, tampilkan modal
+        btn.onclick = function() {
+            modal.style.display = 'block';
+        }
+
+        // Ketika tombol close diklik, tutup modal
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // Ketika pengguna mengklik di luar modal, tutup modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        function goBack() {
+        // Mengubah URL di browser tanpa me-reload
+        history.pushState(null, null, '/admin'); // Ganti '/homepage' dengan URL halaman utama kamu
+        
+        // Menampilkan konten halaman utama (misalnya menyembunyikan modal dan menampilkan konten utama)
+        document.getElementById('scheduleModal').style.display = 'none'; // Menutup modal atau konten pop-up
+        // Bisa juga menambahkan logika untuk menampilkan konten halaman utama
+    }
     </script>
 </body>
 </html>
