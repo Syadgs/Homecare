@@ -146,8 +146,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="logo.png" alt="Logo" style="width: 40px;">
-                <img src="kalisari.png" alt="Kalisari" style="width: 100px;">
+                <img src="/images/logo.png" alt="Logo" style="width: 40px;">
+                <img src="/images/kalisari.png" alt="Kalisari" style="width: 100px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -162,7 +162,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-success text-white d-flex align-items-center justify-content-center" href="https://wa.me/+6282299996577" style="gap: 8px;">
-                            <img src="whatsapp.png" alt="WhatsApp Logo" style="width: 20px; height: 20px;">
+                            <img src="/images/whatsapp.png" alt="WhatsApp Logo" style="width: 20px; height: 20px;">
                             +62822-9999-6577
                         </a>
                     </li>
@@ -178,21 +178,21 @@
             <div class="row">
                 <div class="col-md-4 fade-in" style="animation-delay: 0s;">
                     <div class="text-center">
-                        <img src="{{ asset('hubungi_kami.png') }}" alt="Hubungi Kami" class="mb-3" style="width: 190px; height: auto;">
+                        <img src="{{ asset('/images/hubungi_kami.png') }}" alt="Hubungi Kami" class="mb-3" style="width: 190px; height: auto;">
                         <h5 class="mb-2">Hubungi Kami</h5>
                         <p class="text-muted">Anda dapat menghubungi kami dengan WhatsApp melalui nomor yang sudah tertera pada website kami.</p>
                     </div>
                 </div>
                 <div class="col-md-4 fade-in" style="animation-delay: 0.3s;">
                     <div class="text-center">
-                        <img src="{{ asset('konsultasi.png') }}" alt="Konsultasi" class="mb-3" style="width: 190px; height: auto;">
+                        <img src="{{ asset('/images/konsultasi.png') }}" alt="Konsultasi" class="mb-3" style="width: 190px; height: auto;">
                         <h5 class="mb-2">Konsultasi</h5>
                         <p class="text-muted">Berikan keluhan Anda untuk pengambilan tindakan medis.</p>
                     </div>
                 </div>
                 <div class="col-md-4 fade-in" style="animation-delay: 0.6s;">
                     <div class="text-center">
-                        <img src="{{ asset('tim_medis_datang.png') }}" alt="Tim Medis" class="mb-3" style="width: 190px; height: auto;">
+                        <img src="{{ asset('/images/tim_medis_datang.png') }}" alt="Tim Medis" class="mb-3" style="width: 190px; height: auto;">
                         <h5 class="mb-2">Tim Medis Datang</h5>
                         <p class="text-muted">Tenaga medis kami akan datang untuk memberikan pelayanan kepada Anda.</p>
                     </div>
@@ -218,7 +218,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 text-center">
-                    <img src="kenapa_homecare.png" class="card-img-top" alt="Hubungi Kami">
+                    <img src="/images/kenapa_homecare.png" class="card-img-top" alt="Hubungi Kami">
                 </div>
             </div>
         </div>
@@ -232,7 +232,7 @@
             <div class="col-md-3 mb-4 d-flex justify-content-center">
                 <div class="card text-center" style="width: 650px; background-color: #007B7F; border-radius: 15px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; height: 450px;">
                     <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
-                        <img src="layanan_umum.png" alt="Layanan Umum" style="width: 280px; height: auto; border-radius: 10px; margin-bottom: 20px;">
+                        <img src="/images/layanan_umum.png" alt="Layanan Umum" style="width: 280px; height: auto; border-radius: 10px; margin-bottom: 20px;">
                         <p style="color: #8EDBE6; font-weight: bold;">Layanan Umum</p>
                     </div>
                 </div>
@@ -241,7 +241,7 @@
             <div class="col-md-3 mb-4 d-flex justify-content-center">
                 <div class="card text-center" style="width: 650px; background-color: #007B7F; border-radius: 15px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; height: 450px;">
                     <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
-                        <img src="vitamin.png" alt="Suntik/Infus Vitamin" style="width: 280px; height: auto; border-radius: 10px; margin-bottom: 20px;">
+                        <img src="/images/vitamin.png" alt="Suntik/Infus Vitamin" style="width: 280px; height: auto; border-radius: 10px; margin-bottom: 20px;">
                         <p style="color: #8EDBE6; font-weight: bold;">Suntik/Infus Vitamin</p>
                     </div>
                 </div>
@@ -250,7 +250,7 @@
             <div class="col-md-3 mb-4 d-flex justify-content-center">
                 <div class="card text-center" style="width: 650px; background-color: #007B7F; border-radius: 15px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; height: 450px;">
                     <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
-                        <img src="vaksin.png" alt="Vaksin" style="width: 280px; height: auto; border-radius: 10px; margin-bottom: 20px;">
+                        <img src="/images/vaksin.png" alt="Vaksin" style="width: 280px; height: auto; border-radius: 10px; margin-bottom: 20px;">
                         <p style="color: #8EDBE6; font-weight: bold;">Vaksin</p>
                     </div>
                 </div>
@@ -259,7 +259,7 @@
             <div class="col-md-3 mb-4 d-flex justify-content-center">
                 <div class="card text-center" style="width: 650px; background-color: #007B7F; border-radius: 15px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; height: 450px;">
                     <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
-                        <img src="ambil_darah.png" alt="Pengambilan Darah" style="width: 280px; height: auto; border-radius: 10px; margin-bottom: 20px;">
+                        <img src="/images/ambil_darah.png" alt="Pengambilan Darah" style="width: 280px; height: auto; border-radius: 10px; margin-bottom: 20px;">
                         <p style="color: #8EDBE6; font-weight: bold;">Pengambilan Darah (Lab)</p>
                     </div>
                 </div>
@@ -274,8 +274,8 @@
             <div class="logo-description" style="flex: 1; max-width: 400px;">
                 <div class="logo-description" style="flex: 1; max-width: 400px; display: flex; align-items: center; gap: 15px;">
                     <!-- Logo -->
-                    <img src="logo.png" alt="Logo Kalisari" style="width: 100px;">
-                    <img src="kalisari.png" alt="Kalisari Healthcare" style="width: 175px;">
+                    <img src="/images/logo.png" alt="Logo Kalisari" style="width: 100px;">
+                    <img src="/images/kalisari.png" alt="Kalisari Healthcare" style="width: 175px;">
                 </div>                
                 <p style="line-height: 1.8; text-align: justify;">
                     Kalisari Homecare adalah sebuah layanan perawatan Homecare baik untuk layanan Perawat, Caregiver, dan Dokter 
@@ -288,19 +288,19 @@
             <!-- Kontak -->
             <div class="contact" style="flex: 1; max-width: 300px; text-align: left;">
                 <p style="display: flex; align-items: center; margin: 0 0 10px;">
-                    <img src="Phone.png" alt="Phone" style="width: 20px; height: 20px; margin-right: 10px;">
+                    <img src="/images/Phone.png" alt="Phone" style="width: 20px; height: 20px; margin-right: 10px;">
                     +62 822-9999-6577
                 </p>
                 <p style="display: flex; align-items: center; margin: 0 0 10px;">
-                    <img src="Email.png" alt="Email" style="width: 20px; height: 20px; margin-right: 10px;">
+                    <img src="/images/Email.png" alt="Email" style="width: 20px; height: 20px; margin-right: 10px;">
                     kalisarihealthcare@gmail.com
                 </p>
                 <p style="display: flex; align-items: center; margin: 0 0 10px;">
-                    <img src="Instagram.png" alt="Instagram" style="width: 20px; height: 20px; margin-right: 10px;">
+                    <img src="/images/Instagram.png" alt="Instagram" style="width: 20px; height: 20px; margin-right: 10px;">
                     @kalisarihealthcare
                 </p>
                 <p style="display: flex; align-items: center; margin: 0;">
-                    <img src="Location.png" alt="Location" style="width: 20px; height: 20px; margin-right: 10px;">
+                    <img src="/images/Location.png" alt="Location" style="width: 20px; height: 20px; margin-right: 10px;">
                     Jl. Kalisari Raya No. 20, Kalisari Pasar Rebo, Jakarta Timur
                 </p>
             </div>

@@ -27,7 +27,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('khc_frontdesk.png') no-repeat center center;
+            background: url('/images/khc_frontdesk.png') no-repeat center center;
             background-size: cover;
             filter: blur(8px);
             z-index: -1;
@@ -174,7 +174,7 @@
 </head>
 <body>
     <div class="register-container">
-        <img src="logo.png" alt="Kalisari Healthcare Logo">
+        <img src="/images/logo.png" alt="Kalisari Healthcare Logo">
         <form action="{{ route('register.process') }}" method="POST">
             @csrf
             <div class="form-group">

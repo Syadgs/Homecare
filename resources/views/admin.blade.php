@@ -369,13 +369,13 @@
         <!-- Header -->
         <header class="dashboard-header">
             <a class="navbar-brand" href="#">
-                <img src="logo.png" alt="Logo" style="width: 40px;">
-                <img src="kalisari.png" alt="Kalisari" style="width: 100px;">
+                <img src="/images/logo.png" alt="Logo" style="width: 40px;">
+                <img src="/images/kalisari.png" alt="Kalisari" style="width: 100px;">
             </a>
             <form action="{{ url('/logout') }}" method="GET" style="display: inline;">
                 <button class="logout-button" type="submit">
                     <i class="fas fa-power-off"></i>
-                    <img src="Shutdown.png" alt="Shutdown Logo" style="width: 20px; height: 20px;">
+                    <img src="/images/Shutdown.png" alt="Shutdown Logo" style="width: 20px; height: 20px;">
                     <span>Logout</span>
                 </button>
             </form>
@@ -398,29 +398,29 @@
         <div class="menu-container">
             <button class="menu-item">
                 <i class="fas fa-folder"></i>
-                <img src="{{ asset('Folder.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
+                <img src="{{ asset('/images/Folder.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
                 <span>Data Pasien</span>
             </button>
             <button class="menu-item" id="showModalButton">
                 <i class="fas fa-clock"></i>
-                <img src="{{ asset('Clock.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
+                <img src="{{ asset('/images/Clock.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
                 <span>Jadwal Dokter</span>
             </button>
             <div id="scheduleModal" class="modal">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <img src="Clock.png" alt="Clock Icon" class="icon">
+                        <img src="/images/Clock.png" alt="Clock Icon" class="icon">
                         <h2>Jadwal Dokter</h2>
                     </div>                    
                     <!-- Dokter 1 -->
                     <div class="doctor-card">
-                        <img src="dr_salwa.png" alt="dr. Salwa" class="doctor-photo">
+                        <img src="/images/dr_salwa.png" alt="dr. Salwa" class="doctor-photo">
                         <div class="doctor-info">
                             <h3>dr. Salwa</h3>
                             <div class="schedule-row">
-                                <div><span>Senin</span><span>15.00-21.00</span></div>
-                                <div><span>Selasa</span><span>08.00-21.00</span></div>
-                                <div><span>Rabu</span><span>08.00-21.00</span></div>
+                                <div><span>Senin</span><span>15.00 - 21.00</span></div>
+                                <div><span>Selasa</span><span>08.00 - 21.00</span></div>
+                                <div><span>Rabu</span></div>
                                 <div><span>Kamis</span><span>08.00-15.00</span></div>
                                 <div><span>Jum'at</span><span>08.00-21.00</span></div>
                                 <div><span>Sabtu</span><span>08.00-21.00</span></div>
@@ -430,16 +430,16 @@
             
                     <!-- Dokter 2 -->
                     <div class="doctor-card">
-                        <img src="dr_ece.png" alt="dr. Ece Yurika Wulandari" class="doctor-photo">
+                        <img src="/images/dr_ece.png" alt="dr. Ece Yurika Wulandari" class="doctor-photo">
                         <div class="doctor-info">
                             <h3>dr. Ece Yurika Wulandari</h3>
                             <div class="schedule-row">
                                 <div><span>Senin</span><span>08.00-15.00</span></div>
-                                <div><span>Selasa</span><span>08.00-21.00</span></div>
+                                <div><span>Selasa</span></div>
                                 <div><span>Rabu</span><span>08.00-21.00</span></div>
-                                <div><span>Kamis</span><span>08.00-15.00</span></div>
-                                <div><span>Jum'at</span><span>08.00-21.00</span></div>
-                                <div><span>Sabtu</span><span>08.00-15.00</span></div>
+                                <div><span>Kamis</span></div>
+                                <div><span>Jum'at</span><span>08.00-15.00</span></div>
+                                <div><span>Sabtu</span></div>
                             </div>
                         </div>
                     </div>
@@ -450,17 +450,17 @@
             </div>
             <button class="menu-item" onclick="window.location.href='{{ route('reservasi') }}'">
                 <i class="fas fa-file-signature"></i>
-                <img src="{{ asset('Sign_Doc.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
+                <img src="{{ asset('/images/Sign_Doc.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
                 <span>Reservasi HC</span>
             </button>            
             <button class="menu-item">
                 <i class="fas fa-heart"></i>
-                <img src="{{ asset('Trust.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
+                <img src="{{ asset('/images/Trust.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
                 <span>Layanan</span>
             </button>
             <button class="menu-item">
                 <i class="fas fa-money-bill"></i>
-                <img src="{{ asset('Payment.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
+                <img src="{{ asset('/images/Payment.png') }}" alt="Tim Medis" class="mb-3" style="width: 30px; height: auto;">
                 <span>Pembayaran</span>
             </button>
         </div>
@@ -470,7 +470,7 @@
         <!-- Statistics Section -->
         <div class="statistics">
             <div class="stat-card">
-                <img src="Book.png" alt="Layanan Umum" class="stat-icon">
+                <img src="/images/Book.png" alt="Layanan Umum" class="stat-icon">
                 <div>
                     <i class="fas fa-book stat-icon"></i>
                     <h2>49</h2>
@@ -478,7 +478,7 @@
                 </div> 
             </div>
             <div class="stat-card">
-                <img src="Test_Tube.png" alt="Pengambilan Darah" class="stat-icon">
+                <img src="/images/Test_Tube.png" alt="Pengambilan Darah" class="stat-icon">
                 <div>
                     <i class="fas fa-vial stat-icon"></i>
                     <h2>19</h2>
@@ -486,7 +486,7 @@
                 </div>
             </div>
             <div class="stat-card">
-                <img src="Insulin_Pen.png" alt="Vaksinasi" class="stat-icon">
+                <img src="/images/Insulin_Pen.png" alt="Vaksinasi" class="stat-icon">
                 <div>
                     <i class="fas fa-syringe stat-icon"></i>
                     <h2>11</h2>
@@ -494,7 +494,7 @@
                 </div>
             </div>
             <div class="stat-card">
-                <img src="Hand_Pill.png" alt="Suntik/Infus Vitamin" class="stat-icon">
+                <img src="/images/Hand_Pill.png" alt="Suntik/Infus Vitamin" class="stat-icon">
                 <div>
                     <i class="fas fa-pills stat-icon"></i>
                     <h2>23</h2>
