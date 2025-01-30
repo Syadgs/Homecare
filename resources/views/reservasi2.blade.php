@@ -115,6 +115,23 @@
             background-color: #ccc;
             cursor: not-allowed;
         }
+
+        input::placeholder, textarea::placeholder {
+            color: gray;
+            font-style: italic;
+        }
+
+        .pernyataan {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .pernyataan input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
     </style>
 </head>
 <body>
@@ -130,46 +147,61 @@
         <form id="reservasi-form">
             <!-- Nama Pasien -->
             <div class="form-group">
-                <label for="nama_pasien">Nama Pasien</label>
-                <input type="text" id="nama_pasien" required>
+                <label for="poliklinik">Poliklinik</label>
+                <input type="text" placeholder="HC/HOMECARE"  id="poliklinik" required>
             </div>
 
             <!-- Alamat -->
             <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <input type="text" id="alamat" required>
+                <label for="dokter">Dokter</label>
+                <select id="dokter" required onchange="updateJamPraktek()">
+                    <option value="" disabled selected>Pilih</option>
+                    <option value="dr_salwa">dr. Salwa</option>
+                    <option value="dr_ece">dr. Ece Yurika Wulandari</option>
+                </select>
             </div>
 
             <!-- No HP/WA -->
             <div class="form-group">
-                <label for="no_hp">No. HP/WA</label>
-                <input type="text" id="no_hp" required>
+                <label for="jaminan">Jaminan</label>
+                <select id="jaminan" required>
+                    <option value="" disabled selected>Pilih</option>
+                    <option value="umum">Umum</option>
+                    <option value="asuransi">Asuransi</option>
+                </select>
             </div>
 
             <!-- Email -->
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
+                <label for="tanggal_booking">Tanggal Booking</label>
+                <input type="tanggal_booking" id="tanggal_booking" required>
             </div>
 
             <!-- Jenis Kelamin -->
             <div class="form-group">
-                <label for="jenis_kelamin">Jenis Kelamin</label>
-                <select id="jenis_kelamin" required>
+                <label for="jam_praktek">Jam Praktek</label>
+                <select id="jam_praktek" required>
                     <option value="" disabled selected>Pilih</option>
-                    <option value="Laki-laki">Laki-laki</option>
-                    <option value="Perempuan">Perempuan</option>
                 </select>
             </div>
 
             <!-- Tanggal Lahir -->
             <div class="form-group">
-                <label for="tanggal_lahir">Tanggal Lahir</label>
-                <input type="date" id="tanggal_lahir" required>
+                <label for="tanggal_lahir">Jam Kedatangan</label>
+                <input type="text" placeholder="Sesuai Jam Praktek yang dipilih" id="tanggal_lahir" required>
+            </div>
+            <div class="form-group">
+                <label for="tanggal_lahir">Keterangan</label>
+                <input type="text" id="tanggal_lahir" required>
             </div>
 
+            <div class="form-group pernyataan">
+                <input type="checkbox" id="pernyataan" required>
+                <label for="pernyataan" style="color: red; font-weight: bold;">Saya menyatakan data yang diisi adalah benar dan dapat dipertanggungjawabkan</label>
+            </div>            
+
             <!-- Tombol Next -->
-            <button type="button" class="btn-next" id="next-button" disabled>Selanjutnya</button>
+            <button type="button" class="btn-next" id="next-button" disabled>Kirim</button>
         </form>
     </div>
 
@@ -190,6 +222,40 @@
         nextButton.addEventListener('click', () => {
             form.submit();
         });
+
+        function updateJamPraktek() {
+            const dokter = document.getElementById('dokter').value;
+            const jamPraktek = document.getElementById('jam_praktek');
+
+            // Reset opsi jam praktek
+            jamPraktek.innerHTML = '<option value="" disabled selected>Pilih</option>';
+
+            // Data jadwal praktek
+            const jadwal = {
+                dr_salwa: [
+                    'Senin, 15.00-21.00 WIB',
+                    'Selasa, 08.00-21.00 WIB',
+                    'Kamis, 08.00-15.00 WIB',
+                    'Jum\'at, 08.00-21.00 WIB',
+                    'Sabtu, 08.00-21.00 WIB'
+                ],
+                dr_ece: [
+                    'Senin, 08.00-15.00 WIB',
+                    'Rabu, 08.00-21.00 WIB',
+                    'Jum\'at, 08.00-15.00 WIB'
+                ]
+            };
+
+            // Tambahkan opsi berdasarkan pilihan dokter
+            if (jadwal[dokter]) {
+                jadwal[dokter].forEach(function(jam) {
+                    const option = document.createElement('option');
+                    option.value = jam;
+                    option.textContent = jam;
+                    jamPraktek.appendChild(option);
+                });
+            }
+        }
     </script>
 </body>
 </html>

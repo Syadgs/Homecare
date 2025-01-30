@@ -16,26 +16,26 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('admin');
 });
-
-// Route untuk halaman login
 Route::get('/login', function () {
-    return view('login'); // Pastikan file view login.blade.php sudah dibuat
+    return view('login'); 
 })->name('login');
-
-Route::get('/admin', function () {
-    return view('admin'); // Pastikan file view admin.blade.php sudah dibuat
-})->name('admin');
-// Route untuk menampilkan form reservasi
+Route::get('/register', function () {
+    return view('register'); 
+})->name('register');
 Route::get('/reservasi', function () {
     return view('reservasi');
 })->name('reservasi');
+Route::get('/reservasi2', function () {
+    return view('reservasi2');
+})->name('reservasi2');
+
+
 
 // Route untuk submit form
 Route::post('/reservasi/submit', function () {
     // Logika submit, misalnya menyimpan data ke database
     return redirect()->route('home'); // Contoh redirect
 })->name('reservasi.submit');
-
 
 // Route untuk memproses login
 Route::post('/login', function (\Illuminate\Http\Request $request) {
@@ -59,18 +59,6 @@ Route::get('/logout', function () {
     Auth::logout();
     return redirect('/login');
 });
-
-// Route untuk homepage
-Route::get('/homepage', function () {
-    return view('homepage'); // Pastikan file view homepage.blade.php sudah dibuat
-})->name('homepage');
-
-
-
-// Route untuk halaman registrasi
-Route::get('/register', function () {
-    return view('register'); // Nama view: register.blade.php
-})->name('register');
 
 // Route untuk proses registrasi (opsional)
 Route::post('/register', function (\Illuminate\Http\Request $request) {
